@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <section style="display: grid;
+  height: 100px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px">
+    <div id='elemento'></div>
+    <div id='elemento2'></div>
+    <div id='elemento3'></div>
+  </section>
+  
+
+  <script>
+    //   ----------------------ARCHIVO JS---------------------
+
+fetch('https://pokeapi.co/api/v2/pokemon/435/')
+.then(respuesta => respuesta.json())
+.then(pokemon => {
+  let element = document.getElementById('elemento')
+  element.innerHTML = 
+    `<p> Nombre: ${pokemon.name}<p>
+      <p> Id: ${pokemon.id}<p>
+    <img src='${pokemon.sprites.front_default}'>
+    <p>Altura: ${pokemon.height}<p>
+    <p>Peso: ${pokemon.weight}<p>`;
+  console.log(pokemon)
+})
+.catch(err=>console.log(err))
+
+fetch('https://pokeapi.co/api/v2/pokemon/67/')
+.then(response => response.json())
+.then(pokemon2 => {
+  let element2 = document.getElementById('elemento2')
+  element2.innerHTML = 
+  `<p>Nombre: ${pokemon2.name}<p>
+    <p> Id: ${pokemon2.id}<p>
+  <img src='${pokemon2.sprites.front_default}'>
+  <p>Altura:${pokemon2.height}<p>
+    <p>Peso: ${pokemon2.weight}<p>`;
+  console.log(pokemon2)
+})
+.catch(err=>console.log(err))
+
+
+fetch('https://pokeapi.co/api/v2/pokemon/234/')
+.then(responsen => responsen.json())
+.then(pokemon3 => {
+  let element3 = document.getElementById('elemento3')
+  element3.innerHTML = `
+  <p>Nombre: ${pokemon3.name}<p>
+    <p> Id: ${pokemon3.id}<p>
+  <img src='${pokemon3.sprites.front_default}'>
+  <p>Altura: ${pokemon3.height}<p>
+    <p>Peso: ${pokemon3.weight}<p>`;
+  console.log(pokemon3)
+})
+.catch(err=>console.log(err))
+
+  </script>
+</body>
+</html>
+
+
